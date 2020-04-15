@@ -106,7 +106,7 @@
     {
       "field_name": "collected",
       "label": "Month-Year of Data Collection",
-      "form_placeholder": "e.g. March 2020",
+      "form_placeholder": "e.g. 2020-03",
       "preset": "month"
     },
     {
