@@ -1,0 +1,20 @@
+{
+  "scheming_presets_version": 1.1,
+  "about": "these are justice hub specific field presets that are not present in scheming",
+  "presets": [
+    {
+      "preset_name": "month",
+      "values": {
+        "form_snippet": "month.html",
+        "display_snippet": "month.html"
+      }
+    },
+    {
+      "preset_name": "year",
+      "values": {
+        "form_snippet": "year.html",
+        "display_snippet": "year.html"
+      }
+    }
+  ]
+}
