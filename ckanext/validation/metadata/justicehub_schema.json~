@@ -1,0 +1,330 @@
+
+{
+  "scheming_version": 1,
+  "dataset_type": "dataset",
+  "about": "A reimplementation of the default CKAN dataset schema",
+  "about_url": "http://github.com/ckan/ckanext-scheming",
+  "dataset_fields": [
+    {
+      "field_name": "title",
+      "label": "Title",
+      "preset": "title",
+      "form_placeholder": "eg. A descriptive title"
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "preset": "dataset_slug",
+      "form_placeholder": "eg. my-dataset"
+    },
+    {
+      "field_name": "notes",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "eg. Some useful notes about the data"
+    },
+    {
+      "field_name": "tag_string",
+      "label": "Tags",
+      "preset": "tag_string_autocomplete",
+      "form_placeholder": "eg. economy, mental health, government"
+    },
+    {
+      "field_name": "license_id",
+      "label": "License",
+      "form_snippet": "license.html",
+      "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
+    },
+    {
+      "field_name": "owner_org",
+      "label": "Organization",
+      "preset": "dataset_organization"
+    },
+    {
+      "field_name": "update_frequency",
+      "label": "Update Frequency",
+      "form_placeholder": "e.g. Daily, Monthly, Yearly, Not updated etc",
+      "preset": "resource_format_autocomplete"
+    },
+    {
+      "field_name": "state",
+      "label": "State",
+      "form_placeholder": "e.g. Andhra Pradesh, Chhattisgarh etc",
+      "preset": "resource_format_autocomplete"
+    },
+    {
+      "field_name": "district",
+      "label": "District",
+      "form_placeholder": "e.g. Guntur, Raipur etc",
+      "preset": "resource_format_autocomplete"
+    },
+    {
+      "field_name": "village",
+      "label": "Village",
+      "form_placeholder": "",
+      "preset": "resource_format_autocomplete"
+    },
+    {
+      "field_name": "court",
+      "label": "Court Hierarchy",
+      "preset":"multiple_select",
+      "choices": [
+	      {
+	          "value": "all",
+	          "label": "All"
+	      },
+	      {
+	          "value": "supreme_court",
+	          "label": "Supreme Court"
+	      },
+	      {
+              "value": "high_court",
+              "label": "High Court"
+	      },
+	      {
+              "value": "district_court",
+              "label": "District Court"
+	      },
+	      {
+              "value": "tribunal",
+              "label": "Tribunal"
+	      }
+       ]
+    },
+    {
+      "field_name": "start_year",
+      "label": "Data spans from (year)",
+      "form_placeholder": "e.g. 2010",
+      "preset": "year"
+    },
+    {
+      "field_name": "end_year",
+      "label": "Data spans till (year)",
+      "form_placeholder": "e.g. 2020",
+      "preset": "year"
+    },
+    {
+      "field_name": "collected",
+      "label": "Month-Year of Data Collection",
+      "form_placeholder": "e.g. 2020-03",
+      "preset": "month"
+    },
+    {
+      "field_name": "level",
+      "label": "Level of Dataset",
+      "form_placeholder": "e.g. Individual, State",
+      "preset": "resource_format_autocomplete"
+    },
+    {
+      "field_name": "language",
+      "label": "Language",
+      "form_placeholder": "e.g. en, hi",
+      "preset": "resource_format_autocomplete"
+    },
+    {
+      "field_name":"upload_date",
+      "label": "Upload date",
+      "preset":"date"
+    },
+    {
+      "field_name": "last_updated",
+      "label": "Last updated on",
+      "preset": "date"
+    },
+    {
+      "field_name": "url",
+      "label": "Source",
+      "form_placeholder": "http://example.com/dataset.json",
+      "display_property": "foaf:homepage",
+      "display_snippet": "link.html"
+    },
+    {
+      "field_name": "data_source",
+      "label": "Data Source",
+      "preset":"multiple_select",
+      "choices": [
+	      {
+	          "value": "gov_web",
+	          "label": "Government Website"
+	      },
+	      {
+	          "value": "gov_pub",
+	          "label": "Government Publication"
+	      },
+	      {
+              "value": "other_web",
+              "label": "Other Website"
+	      },
+	      {
+              "value": "other_pub",
+              "label": "Other Publication"
+	      },
+          {
+              "value": "media_pub",
+              "label": "Media Publication"
+	      },
+          {
+              "value": "rti",
+              "label": "RTI"
+	      },
+          {
+              "value": "ecourts",
+              "label": "eCourts"
+	      },
+          {
+              "value": "ncrb",
+              "label": "NCRB"
+	      }
+       ]
+    },
+    {
+      "field_name": "other_data_source",
+      "label": {"en": "Other source"},
+      "output_validators": "ignore_missing"
+    },
+    {
+      "field_name":"method_of_collection",
+      "label": "Method of Collection",
+      "preset":"multiple_select",
+      "choices": [
+	      {
+              "value": "primary",
+              "label": "Data collected"
+	      },
+	      {
+	          "value": "scraping",
+	          "label": "Web Scraping"
+	      },
+	      {
+	          "value": "survey",
+	          "label": "Survey"
+	      },
+          {
+	          "value": "gov_sourced",
+	          "label": "Sourced from Government Agencies"
+	      }
+       ]
+    },
+    {
+      "field_name": "other_method",
+      "label": {"en": "Other Method"},
+      "output_validators": "ignore_missing"
+    },
+    {
+      "field_name": "Sensitivity",
+      "label": "How sensitive is the data",
+      "preset":"select",
+      "choices":[
+	      {
+		 "value": "high",
+		 "label": "Highly sensitive"
+	      },
+	      {
+		 "value": "medium",
+		 "label": "Medium sensitive"
+	      },
+	      {
+		 "value": "low",
+		 "label": "Low sensitive"
+	      }
+      ]
+    },
+    {
+      "field_name": "version",
+      "label": "Version",
+      "validators": "ignore_missing unicode package_version_validator",
+      "form_placeholder": "1.0"
+    },
+    {
+      "field_name": "author",
+      "label": "Author",
+      "form_placeholder": "Joe Bloggs",
+      "display_property": "dc:creator"
+    },
+    {
+      "field_name": "author_email",
+      "label": "Author Email",
+      "form_placeholder": "joe@example.com",
+      "display_property": "dc:creator",
+      "display_snippet": "email.html",
+      "display_email_name_field": "author"
+    },
+    {
+      "field_name": "maintainer",
+      "label": "Maintainer",
+      "form_placeholder": "Joe Bloggs",
+      "display_property": "dc:contributor"
+    },
+    {
+      "field_name": "maintainer_email",
+      "label": "Maintainer Email",
+      "form_placeholder": "joe@example.com",
+      "display_property": "dc:contributor",
+      "display_snippet": "email.html",
+      "display_email_name_field": "maintainer"
+    },
+    {
+      "field_name": "assumptions",
+      "label": "Assumptions",
+      "form_snippet": "markdown.html"
+    },
+    {
+      "field_name": "links",
+      "label": "External Links",
+      "form_placeholder": "http://example.com/article",
+<<<<<<< HEAD
+      "form_snippet": "links.html",
+      "display_snippet": "links.html",
+      "validators": "repeating_links",
+      "output_validators": "repeating_links_output"
+=======
+      "display_property": "foaf:homepage",
+      "display_snippet": "link.html",
+      "validators": "ignore_missing unicode remove_whitespace"
+>>>>>>> Closes justicehub.in/Justice-Hub#27: add a field for external links in dataset schema
+    }
+  ],
+  "resource_fields": [
+    {
+      "field_name": "url",
+      "label": "URL",
+      "preset": "resource_url_upload"
+    },
+    {
+      "field_name": "name",
+      "label": "Name",
+      "form_placeholder": "eg. January 2011 Gold Prices"
+    },
+    {
+      "field_name": "description",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "Some useful notes about the data"
+    },
+    {
+      "field_name": "format",
+      "label": "Format",
+      "preset": "resource_format_autocomplete"
+    },
+    {
+      "field_name": "schema",
+      "label": "Schema",
+      "preset": "resource_schema"
+    },
+    {
+      "field_name": "validation_options",
+      "label": "Validation options",
+      "preset": "validation_options"
+    },
+    {
+      "field_name": "validation_status",
+      "label": "Validation status",
+      "preset": "hidden_in_form"
+    },
+    {
+      "field_name": "validation_timestamp",
+      "label": "Validation timestamp",
+      "preset": "hidden_in_form"
+    }
+  ]
+}
