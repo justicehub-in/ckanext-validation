@@ -47,8 +47,8 @@
       "preset": "resource_format_autocomplete"
     },
     {
-      "field_name": "state",
-      "label": "State",
+      "field_name": "states",
+      "label": "Indian State",
       "form_placeholder": "e.g. Andhra Pradesh, Chhattisgarh etc",
       "preset": "resource_format_autocomplete"
     },
@@ -104,7 +104,7 @@
       "preset": "year"
     },
     {
-      "field_name": "collected",
+      "field_name": "collected_month",
       "label": "Month-Year of Data Collection",
       "form_placeholder": "e.g. 2020-03",
       "preset": "month"
@@ -211,7 +211,7 @@
       "output_validators": "ignore_missing"
     },
     {
-      "field_name": "Sensitivity",
+      "field_name": "sensitivity",
       "label": "How sensitive is the data",
       "preset":"select",
       "choices":[
