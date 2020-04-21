@@ -26,6 +26,8 @@ from ckanext.validation.helpers import (
 from ckanext.validation.validators import (
     resource_schema_validator,
     validation_options_validator,
+    repeating_links,
+    repeating_links_output
 )
 from ckanext.validation.utils import (
     get_create_mode_from_config,
@@ -267,6 +269,8 @@ to create the database tables:
         return {
             'resource_schema_validator': resource_schema_validator,
             'validation_options_validator': validation_options_validator,
+            'repeating_links': repeating_links,
+            'repeating_links_output': repeating_links_output,
         }
 
 

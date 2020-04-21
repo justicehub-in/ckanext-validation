@@ -1,0 +1,9 @@
+{#
+Note: Taken from: https://github.com/open-data/ckanext-repeating/blob/master/ckanext/repeating/templates/scheming/display_snippets/repeating_text.html
+#}
+{%- set values = data[field.field_name] -%}
+<ol>
+{%- for element in values -%}
+    <li><a>{{ element }}</a></li>
+{%- endfor -%}
+</ol>

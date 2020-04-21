@@ -267,6 +267,15 @@
       "field_name": "assumptions",
       "label": "Assumptions",
       "form_snippet": "markdown.html"
+    },
+    {
+      "field_name": "links",
+      "label": "External Links",
+      "form_placeholder": "http://example.com/article",
+      "form_snippet": "links.html",
+      "display_snippet": "links.html",
+      "validators": "repeating_links",
+      "output_validators": "repeating_links_output"
     }
   ],
   "resource_fields": [
