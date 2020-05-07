@@ -319,6 +319,12 @@
       "field_name": "validation_timestamp",
       "label": "Validation timestamp",
       "preset": "hidden_in_form"
+    },
+    {
+      "field_name": "information_type",
+      "label": "Information Type",
+      "preset": "resource_format_autocomplete",
+      "form_placeholder": "eg. case metadata, prison details"
     }
   ]
 }
