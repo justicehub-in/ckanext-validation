@@ -214,18 +214,19 @@
       "field_name": "sensitivity",
       "label": "How sensitive is the data",
       "preset":"select",
+      "form_snippet": "radio.html",
       "choices":[
 	      {
-		 "value": "high",
-		 "label": "Highly sensitive"
+             "value": "low",
+             "label": "Low sensitive"
 	      },
 	      {
-		 "value": "medium",
-		 "label": "Medium sensitive"
+             "value": "medium",
+             "label": "Medium sensitive"
 	      },
 	      {
-		 "value": "low",
-		 "label": "Low sensitive"
+             "value": "high",
+             "label": "Highly sensitive"
 	      }
       ]
     },
