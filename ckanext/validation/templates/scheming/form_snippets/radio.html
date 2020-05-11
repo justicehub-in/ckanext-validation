@@ -11,13 +11,14 @@ Note: Taken from: https://github.com/ckan/ckanext-scheming/issues/185#issuecomme
     is_required=h.scheming_field_required(field)) -%}
     <fieldset class="radios">
         {%- for c in field.choices -%}
-            <input id="field-{{ field.field_name }}-{{ c.value }}"
-                type="radio"
-                name="{{ field.field_name }}"
-                value="{{ c.value }}"
-                {{"checked " if c.value in data[field.field_name] }} />
-            {{ h.scheming_language_text(c.label) }}
-            </input>
+            <label for="field-{{ field.field_name }}-{{ c.value }}">
+                <input id="field-{{ field.field_name }}-{{ c.value }}"
+                    type="radio"
+                    name="{{ field.field_name }}"
+                    value="{{ c.value }}"
+                    {{"checked " if c.value in data[field.field_name] }} />
+                {{ h.scheming_language_text(c.label) }}
+            </label>
         {%- endfor -%}
     </fieldset>
     {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
