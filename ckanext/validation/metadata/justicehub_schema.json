@@ -67,7 +67,7 @@
     {
       "field_name": "court",
       "label": "Court Hierarchy",
-      "preset":"multiple_select",
+      "preset":"multiple_checkbox",
       "choices": [
 	      {
 	          "value": "all",
@@ -113,7 +113,7 @@
       "field_name": "level",
       "label": "Level of Dataset",
       "form_placeholder": "e.g. Individual, State",
-      "preset": "resource_format_autocomplete"
+      "preset": "tag_string_autocomplete"
     },
     {
       "field_name": "language",
@@ -141,7 +141,8 @@
     {
       "field_name": "data_source",
       "label": "Data Source",
-      "preset":"multiple_select",
+      "preset":"multiple_checkbox",
+      "form_snippet": "multiple_checkbox_with_other.html",
       "choices": [
 	      {
 	          "value": "gov_web",
@@ -178,14 +179,10 @@
        ]
     },
     {
-      "field_name": "other_data_source",
-      "label": {"en": "Other source"},
-      "output_validators": "ignore_missing"
-    },
-    {
       "field_name":"method_of_collection",
       "label": "Method of Collection",
-      "preset":"multiple_select",
+      "preset":"multiple_checkbox",
+      "form_snippet": "multiple_checkbox_with_other.html",
       "choices": [
 	      {
               "value": "primary",
@@ -204,11 +201,6 @@
 	          "label": "Sourced from Government Agencies"
 	      }
        ]
-    },
-    {
-      "field_name": "other_method",
-      "label": {"en": "Other Method"},
-      "output_validators": "ignore_missing"
     },
     {
       "field_name": "sensitivity",
