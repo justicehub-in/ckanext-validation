@@ -67,7 +67,7 @@
     {
       "field_name": "court",
       "label": "Court Hierarchy",
-      "preset":"multiple_select",
+      "preset":"multiple_checkbox",
       "choices": [
 	      {
 	          "value": "all",
