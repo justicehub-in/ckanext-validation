@@ -23,12 +23,23 @@
   {% block package_metadata_fields_visibility %}
     <div class="control-group form-group control-medium">
       <label for="field-private" class="control-label">{{ _('Visibility') }}</label>
-      <div class="controls">
 
-      {% for option in [('True', _('Private')), ('False', _('Public'))] %}
-        <input id="field-{{ option[1] }}" type="radio" name="visibility" value="{{ option[0] }}">{{ option[1] }}</option>
-      {% endfor %}
+      <div class="controls">
+         <fieldset class="radios">
+          {% for option in [('True', _('Private')), ('False', _('Public'))] %}
+            <label for="field-{{ option[1] }}">
+                <input id="field-{{ option[1] }}"
+                    type="radio"
+                    name="visibility"
+                    value="{{ option[0] }}"
+                    {{ "checked " if data["private"] and option[1] == 'Private' }}
+                    {{ "checked " if not data["private"] and option[1] == 'Public' }}/>
+                {{ option[1] }}
+            </label>
+          {% endfor %}
+        </fieldset>
       </div>
+
     </div>
   {% endblock %}
 
