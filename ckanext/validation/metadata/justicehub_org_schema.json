@@ -1,0 +1,56 @@
+{
+  "scheming_version": 1,
+  "organization_type": "organization",
+  "about": "A reimplementation of the default CKAN org schema",
+  "about_url": "http://github.com/ckan/ckanext-scheming",
+  "fields": [
+    {
+      "field_name": "title",
+      "label": "Name",
+      "validators": "ignore_missing unicode",
+      "form_snippet": "large_text.html",
+      "form_attrs": {"data-module": "slug-preview-target"},
+      "form_placeholder": "My theme"
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "validators": "not_empty unicode name_validator group_name_validator",
+      "form_snippet": "slug.html",
+      "form_placeholder": "my-theme"
+    },
+    {
+      "field_name": "notes",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "A little information about my group..."
+    },
+    {
+      "field_name": "logo",
+      "label": "Logo",
+      "form_placeholder": "http://example.com/my-image.jpg",
+      "upload_label": "Logo",
+      "preset": "resource_url_upload"
+    },
+    {
+      "field_name": "website",
+      "label": "Website",
+      "form_placeholder": "https://justicehub.in/"
+    },
+    {
+      "field_name": "email",
+      "label": "Email",
+      "form_placeholder": "info@myorg.domain"
+    },
+    {
+      "field_name": "twitter",
+      "label": "Twitter Handle",
+      "form_placeholder": "https://twitter.com/JusticeHubIndia"
+    },
+    {
+      "field_name": "facebook",
+      "label": "Facebook Page",
+      "form_placeholder": "https://www.facebook.com/justicehubindia/"
+    }
+  ]
+}
