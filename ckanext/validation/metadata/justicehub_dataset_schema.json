@@ -75,8 +75,26 @@
     {
       "field_name": "update_frequency",
       "label": "Update Frequency",
-      "form_placeholder": "e.g. Daily, Monthly, Yearly, Not updated etc",
-      "preset": "resource_format_autocomplete"
+      "preset":"select",
+      "form_snippet": "radio.html",
+      "choices":[
+	      {
+             "value": "not_updated",
+             "label": "Not updated"
+	      },
+          {
+             "value": "daily",
+             "label": "Daily"
+	      },
+	      {
+             "value": "monthly",
+             "label": "Monthly"
+	      },
+	      {
+             "value": "annually",
+             "label": "Annually"
+	      }
+      ]
     },
     {
       "field_name": "states",
