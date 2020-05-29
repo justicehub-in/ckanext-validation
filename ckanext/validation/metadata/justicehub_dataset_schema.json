@@ -30,6 +30,38 @@
       "form_placeholder": "eg. economy, mental health, government"
     },
     {
+      "field_name": "verified",
+      "label": "Is dataset verified",
+      "preset":"select",
+      "form_snippet": "radio.html",
+      "choices":[
+	      {
+             "value": "true",
+             "label": "Yes"
+	      },
+	      {
+             "value": "false",
+             "label": "No"
+	      }
+      ]
+    },
+    {
+      "field_name": "state",
+      "label": "State",
+      "preset":"select",
+      "form_snippet": "radio.html",
+      "choices":[
+	      {
+             "value": "active",
+             "label": "Active"
+	      },
+	      {
+             "value": "draft",
+             "label": "Draft"
+	      }
+      ]
+    },
+    {
       "field_name": "license_id",
       "label": "License",
       "form_snippet": "license.html",
@@ -314,10 +346,13 @@
       "preset": "hidden_in_form"
     },
     {
-      "field_name": "information_type",
-      "label": "Information Type",
-      "preset": "resource_format_autocomplete",
-      "form_placeholder": "eg. case metadata, prison details"
+      "field_name": "variable_measured",
+      "label": "Variable Measured",
+      "preset": "metadata_autocomplete",
+      "form_placeholder": "eg. case metadata, prison details",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/resource_metadata_autocomplete?field=variable_measured&incomplete=?"
+      }
     }
   ]
 }
