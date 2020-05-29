@@ -329,11 +329,22 @@
     {
       "field_name": "links",
       "label": "External Links",
-      "form_placeholder": "http://example.com/article",
-      "form_snippet": "links.html",
-      "display_snippet": "links.html",
-      "validators": "repeating_links",
-      "output_validators": "repeating_links_output"
+      "preset": "composite_repeating",
+      "form_blanks": 3,
+      "subfields": [
+          {
+              "field_name": "link",
+              "label": "Link"
+          },
+          {
+              "field_name": "title",
+              "label": "Title"
+          },
+          {
+              "field_name": "description",
+              "label": "Description"
+          }
+      ]
     }
   ],
   "resource_fields": [
