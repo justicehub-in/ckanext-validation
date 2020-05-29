@@ -98,21 +98,30 @@
     },
     {
       "field_name": "states",
-      "label": "Indian State",
+      "label": "State",
       "form_placeholder": "e.g. Andhra Pradesh, Chhattisgarh etc",
-      "preset": "resource_format_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=states&incomplete=?"
+      }
     },
     {
       "field_name": "district",
       "label": "District",
       "form_placeholder": "e.g. Guntur, Raipur etc",
-      "preset": "resource_format_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=district&incomplete=?"
+      }
     },
     {
       "field_name": "village",
       "label": "Village",
       "form_placeholder": "",
-      "preset": "resource_format_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=village&incomplete=?"
+      }
     },
     {
       "field_name": "court",
@@ -163,13 +172,19 @@
       "field_name": "level",
       "label": "Level of Dataset",
       "form_placeholder": "e.g. Individual, State",
-      "preset": "tag_string_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=level&incomplete=?"
+      }
     },
     {
       "field_name": "language",
       "label": "Language",
       "form_placeholder": "e.g. en, hi",
-      "preset": "resource_format_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=language&incomplete=?"
+      }
     },
     {
       "field_name":"upload_date",

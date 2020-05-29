@@ -15,6 +15,16 @@
         "form_snippet": "year.html",
         "display_snippet": "year.html"
       }
+    },
+    {
+      "preset_name": "metadata_autocomplete",
+      "values": {
+        "validators": "ignore_missing clean_format unicode",
+        "form_snippet": "metadata_autocomplete.html",
+        "form_attrs": {
+          "data-module": "autocomplete-action-api"
+        }
+      }
     }
   ]
 }
