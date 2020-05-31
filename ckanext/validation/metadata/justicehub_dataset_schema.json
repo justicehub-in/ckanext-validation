@@ -31,7 +31,7 @@
     },
     {
       "field_name": "verified",
-      "label": "Is dataset verified",
+      "label": "Verified",
       "preset":"select",
       "form_snippet": "radio.html",
       "choices":[
@@ -43,7 +43,8 @@
              "value": "false",
              "label": "No"
 	      }
-      ]
+      ],
+      "description": "Indicates if the dataset has finished moderator verification."
     },
     {
       "field_name": "state",
@@ -59,7 +60,8 @@
              "value": "draft",
              "label": "Draft"
 	      }
-      ]
+      ],
+      "description": "State of the dataset: Active or Draft."
     },
     {
       "field_name": "license_id",
@@ -94,7 +96,8 @@
              "value": "annually",
              "label": "Annually"
 	      }
-      ]
+      ],
+      "description": "Indicates if or how frequently the dataset is updated."
     },
     {
       "field_name": "states",
@@ -103,7 +106,8 @@
       "preset": "metadata_autocomplete",
       "form_attrs": {
           "data-module-source": "/api/3/action/metadata_autocomplete?field=states&incomplete=?"
-      }
+      },
+      "description": "Which Indian state(s) the dataset has data from."
     },
     {
       "field_name": "district",
@@ -112,7 +116,8 @@
       "preset": "metadata_autocomplete",
       "form_attrs": {
           "data-module-source": "/api/3/action/metadata_autocomplete?field=district&incomplete=?"
-      }
+      },
+      "description": "Which Indian district(s) the dataset has data from."
     },
     {
       "field_name": "village",
@@ -121,7 +126,8 @@
       "preset": "metadata_autocomplete",
       "form_attrs": {
           "data-module-source": "/api/3/action/metadata_autocomplete?field=village&incomplete=?"
-      }
+      },
+      "description": "Which Indian village(s) the dataset has data from."
     },
     {
       "field_name": "court",
@@ -148,25 +154,29 @@
               "value": "tribunal",
               "label": "Tribunal"
 	      }
-       ]
+       ],
+      "description": "From which level of court the data is studied."
     },
     {
       "field_name": "start_year",
       "label": "Data spans from (year)",
       "form_placeholder": "e.g. 2010",
-      "preset": "year"
+      "preset": "year",
+      "description": "From which year the data is collected."
     },
     {
       "field_name": "end_year",
       "label": "Data spans till (year)",
       "form_placeholder": "e.g. 2020",
-      "preset": "year"
+      "preset": "year",
+      "description": "Till which year the data is collected."
     },
     {
       "field_name": "collected_month",
       "label": "Year-Month of Data Collection",
       "form_placeholder": "e.g. 2020-03",
-      "preset": "month"
+      "preset": "month",
+      "description": "When the data was collected."
     },
     {
       "field_name": "level",
@@ -175,7 +185,8 @@
       "preset": "metadata_autocomplete",
       "form_attrs": {
           "data-module-source": "/api/3/action/metadata_autocomplete?field=level&incomplete=?"
-      }
+      },
+      "description": "On which level the study was done e.g. Individual, State etc."
     },
     {
       "field_name": "language",
@@ -241,7 +252,8 @@
               "value": "ncrb",
               "label": "NCRB"
 	      }
-       ]
+       ],
+      "description": "What is the source of data."
     },
     {
       "field_name":"method_of_collection",
@@ -265,7 +277,8 @@
 	          "value": "gov_sourced",
 	          "label": "Sourced from Government Agencies"
 	      }
-       ]
+       ],
+      "description": "How the data was collected."
     },
     {
       "field_name": "sensitivity",
@@ -285,7 +298,8 @@
              "value": "high",
              "label": "Highly sensitive"
 	      }
-      ]
+      ],
+      "description": "Sensitivity of the information that is being presented in the dataset."
     },
     {
       "field_name": "version",
@@ -344,7 +358,8 @@
               "field_name": "description",
               "label": "Description"
           }
-      ]
+      ],
+      "description": "Any relevant links e.g. research publication, code etc."
     }
   ],
   "resource_fields": [
@@ -396,7 +411,8 @@
       "form_placeholder": "eg. case metadata, prison details",
       "form_attrs": {
           "data-module-source": "/api/3/action/resource_metadata_autocomplete?field=variable_measured&incomplete=?"
-      }
+      },
+      "description": "What information does this file capture."
     }
   ]
 }
