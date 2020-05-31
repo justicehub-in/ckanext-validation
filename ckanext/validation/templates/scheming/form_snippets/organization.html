@@ -26,11 +26,11 @@
 
       <div class="controls">
          <fieldset class="radios">
-          {% for option in [('True', _('Private')), ('False', _('Public'))] %}
+          {% for option in [('t', _('Private')), ('f', _('Public'))] %}
             <label for="field-{{ option[1] }}">
                 <input id="field-{{ option[1] }}"
                     type="radio"
-                    name="visibility"
+                    name="private"
                     value="{{ option[0] }}"
                     {{ "checked " if data["private"] and option[1] == 'Private' }}
                     {{ "checked " if not data["private"] and option[1] == 'Public' }}/>

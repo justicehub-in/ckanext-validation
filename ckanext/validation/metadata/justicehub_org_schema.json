@@ -26,6 +26,22 @@
       "form_placeholder": "A little information about my group..."
     },
     {
+      "field_name": "signed_pledge",
+      "label": "Signed pledge",
+      "preset":"select",
+      "form_snippet": "radio.html",
+      "choices":[
+	      {
+             "value": "true",
+             "label": "Yes"
+	      },
+	      {
+             "value": "false",
+             "label": "No"
+	      }
+      ]
+    },
+    {
       "field_name": "logo",
       "label": "Logo",
       "form_placeholder": "http://example.com/my-image.jpg",

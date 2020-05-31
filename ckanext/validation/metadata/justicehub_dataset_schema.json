@@ -30,6 +30,38 @@
       "form_placeholder": "eg. economy, mental health, government"
     },
     {
+      "field_name": "verified",
+      "label": "Is dataset verified",
+      "preset":"select",
+      "form_snippet": "radio.html",
+      "choices":[
+	      {
+             "value": "true",
+             "label": "Yes"
+	      },
+	      {
+             "value": "false",
+             "label": "No"
+	      }
+      ]
+    },
+    {
+      "field_name": "state",
+      "label": "State",
+      "preset":"select",
+      "form_snippet": "radio.html",
+      "choices":[
+	      {
+             "value": "active",
+             "label": "Active"
+	      },
+	      {
+             "value": "draft",
+             "label": "Draft"
+	      }
+      ]
+    },
+    {
       "field_name": "license_id",
       "label": "License",
       "form_snippet": "license.html",
@@ -43,26 +75,53 @@
     {
       "field_name": "update_frequency",
       "label": "Update Frequency",
-      "form_placeholder": "e.g. Daily, Monthly, Yearly, Not updated etc",
-      "preset": "resource_format_autocomplete"
+      "preset":"select",
+      "form_snippet": "radio.html",
+      "choices":[
+	      {
+             "value": "not_updated",
+             "label": "Not updated"
+	      },
+          {
+             "value": "daily",
+             "label": "Daily"
+	      },
+	      {
+             "value": "monthly",
+             "label": "Monthly"
+	      },
+	      {
+             "value": "annually",
+             "label": "Annually"
+	      }
+      ]
     },
     {
       "field_name": "states",
-      "label": "Indian State",
+      "label": "State",
       "form_placeholder": "e.g. Andhra Pradesh, Chhattisgarh etc",
-      "preset": "resource_format_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=states&incomplete=?"
+      }
     },
     {
       "field_name": "district",
       "label": "District",
       "form_placeholder": "e.g. Guntur, Raipur etc",
-      "preset": "resource_format_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=district&incomplete=?"
+      }
     },
     {
       "field_name": "village",
       "label": "Village",
       "form_placeholder": "",
-      "preset": "resource_format_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=village&incomplete=?"
+      }
     },
     {
       "field_name": "court",
@@ -113,13 +172,19 @@
       "field_name": "level",
       "label": "Level of Dataset",
       "form_placeholder": "e.g. Individual, State",
-      "preset": "tag_string_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=level&incomplete=?"
+      }
     },
     {
       "field_name": "language",
       "label": "Language",
       "form_placeholder": "e.g. en, hi",
-      "preset": "resource_format_autocomplete"
+      "preset": "metadata_autocomplete",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=language&incomplete=?"
+      }
     },
     {
       "field_name":"upload_date",
@@ -264,11 +329,22 @@
     {
       "field_name": "links",
       "label": "External Links",
-      "form_placeholder": "http://example.com/article",
-      "form_snippet": "links.html",
-      "display_snippet": "links.html",
-      "validators": "repeating_links",
-      "output_validators": "repeating_links_output"
+      "preset": "composite_repeating",
+      "form_blanks": 3,
+      "subfields": [
+          {
+              "field_name": "link",
+              "label": "Link"
+          },
+          {
+              "field_name": "title",
+              "label": "Title"
+          },
+          {
+              "field_name": "description",
+              "label": "Description"
+          }
+      ]
     }
   ],
   "resource_fields": [
@@ -314,10 +390,13 @@
       "preset": "hidden_in_form"
     },
     {
-      "field_name": "information_type",
-      "label": "Information Type",
-      "preset": "resource_format_autocomplete",
-      "form_placeholder": "eg. case metadata, prison details"
+      "field_name": "variable_measured",
+      "label": "Variable Measured",
+      "preset": "metadata_autocomplete",
+      "form_placeholder": "eg. case metadata, prison details",
+      "form_attrs": {
+          "data-module-source": "/api/3/action/resource_metadata_autocomplete?field=variable_measured&incomplete=?"
+      }
     }
   ]
 }
