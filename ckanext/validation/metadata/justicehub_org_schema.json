@@ -42,10 +42,11 @@
       ]
     },
     {
-      "field_name": "logo",
+      "field_name": "image_url",
       "label": "Logo",
       "form_placeholder": "http://example.com/my-image.jpg",
       "upload_label": "Logo",
+      "upload_field": "image_upload",
       "preset": "resource_url_upload"
     },
     {
