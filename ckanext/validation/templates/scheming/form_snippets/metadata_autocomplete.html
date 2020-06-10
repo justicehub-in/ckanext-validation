@@ -3,6 +3,7 @@
     <div class="controls">
         <input id="field-{{ field.field_name }}" name="{{ field.field_name }}" type="text" placeholder="{{ field.form_placeholder }}"
                value="{{ data[field.field_name] }}" class="form-control" data-module="autocomplete-action-api"
-               data-module-source="{{ field.form_attrs['data-module-source'] }}">
+               data-module-source="{{ field.form_attrs['data-module-source'] }}"
+               {% if field.form_attrs.get('data-module-tags') %}data-module-tags="{{field.form_attrs['data-module-tags']}}"{% endif %}">
     </div>
 </div>
