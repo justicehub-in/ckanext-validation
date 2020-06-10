@@ -1,39 +1,32 @@
 # encoding: utf-8
 
-import logging
 import cgi
 import json
+import logging
+
+import ckantoolkit as t
+from ckanext.validation import settings
+from ckanext.validation.helpers import (bootstrap_version, dump_json_value,
+                                        get_validation_badge,
+                                        validation_extract_report_from_errors)
+from ckanext.validation.logic import (auth_resource_validation_delete,
+                                      auth_resource_validation_run,
+                                      auth_resource_validation_run_batch,
+                                      auth_resource_validation_show)
+from ckanext.validation.logic import resource_create as custom_resource_create
+from ckanext.validation.logic import resource_update as custom_resource_update
+from ckanext.validation.logic import (resource_validation_delete,
+                                      resource_validation_run,
+                                      resource_validation_run_batch,
+                                      resource_validation_show)
+from ckanext.validation.model import tables_exist
+from ckanext.validation.utils import (get_create_mode_from_config,
+                                      get_update_mode_from_config)
+from ckanext.validation.validators import (resource_schema_validator,
+                                           scheming_multiple_choice_with_other,
+                                           validation_options_validator)
 
 import ckan.plugins as p
-import ckantoolkit as t
-
-from ckanext.validation import settings
-from ckanext.validation.model import tables_exist
-from ckanext.validation.logic import (
-    resource_validation_run, resource_validation_show,
-    resource_validation_delete, resource_validation_run_batch,
-    auth_resource_validation_run, auth_resource_validation_show,
-    auth_resource_validation_delete, auth_resource_validation_run_batch,
-    resource_create as custom_resource_create,
-    resource_update as custom_resource_update,
-)
-from ckanext.validation.helpers import (
-    get_validation_badge,
-    validation_extract_report_from_errors,
-    dump_json_value,
-    bootstrap_version,
-)
-from ckanext.validation.validators import (
-    resource_schema_validator,
-    validation_options_validator,
-    repeating_links,
-    repeating_links_output
-)
-from ckanext.validation.utils import (
-    get_create_mode_from_config,
-    get_update_mode_from_config,
-)
-
 
 log = logging.getLogger(__name__)
 
@@ -269,8 +262,7 @@ to create the database tables:
         return {
             'resource_schema_validator': resource_schema_validator,
             'validation_options_validator': validation_options_validator,
-            'repeating_links': repeating_links,
-            'repeating_links_output': repeating_links_output,
+            'scheming_multiple_choice_with_other': scheming_multiple_choice_with_other
         }
 
 

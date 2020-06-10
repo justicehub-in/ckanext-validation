@@ -1,9 +1,12 @@
 # encoding: utf-8
 import json
 
+import six
 import tableschema
-from ckan.plugins.toolkit import _, missing
+from ckanext.scheming.validation import scheming_validator
 from ckantoolkit import Invalid, config
+
+from ckan.plugins.toolkit import _, missing
 
 # Note: repeating_links and repeating_links_output are taken from:
 # https://github.com/open-data/ckanext-repeating/blob/master/ckanext/repeating/validators.py
@@ -70,81 +73,60 @@ def validation_options_validator(value, context):
     return value
 
 
-def repeating_links(key, data, errors, context):
+@scheming_validator
+def scheming_multiple_choice_with_other(field, schema):
     """
-    Accept repeating url input in the following forms
-    and convert to a json list for storage:
-    1. a list of strings, eg.
-       ["http://example.com/article1", "http://example.com/article2"]
-    2. a single string value to allow single text fields to be
-       migrated to repeating text
-       "http://example.com/article"
+    Accept zero or more values from a list of choices and convert
+    to a json list for storage:
+
+    1. a list of strings, eg.:
+
+       ["choice-a", "choice-b"]
+
+    2. a single string for single item selection in form submissions:
+
+       "choice-a"
     """
+    static_choice_values = None
+    if 'choices' in field:
+        static_choice_order = [c['value'] for c in field['choices']]
+        static_choice_values = set(static_choice_order)
 
-    # just in case there was an error before our validator,
-    # bail out here because our errors won't be useful
-    if errors[key]:
-        return
-
-    value = data[key]
-    # 1. list of strings or 2. single string
-    if value is not missing:
-        if isinstance(value, basestring):
-            value = [value]
-        if not isinstance(value, list):
-            errors[key].append(_('expecting list of strings'))
+    def validator(key, data, errors, context):
+        # if there was an error before calling our validator
+        # don't bother with our validation
+        if errors[key]:
             return
 
-        out = []
+        value = data[key]
+        if value is not missing:
+            if isinstance(value, six.string_types):
+                value = [value]
+            elif not isinstance(value, list):
+                errors[key].append(_('expecting list of strings'))
+                return
+        else:
+            value = []
+
+        choice_values = static_choice_values
+        if not choice_values:
+            choice_order = [c['value'] for c in sh.scheming_field_choices(field)]
+            choice_values = set(choice_order)
+
+        selected = set()
         for element in value:
-            if not isinstance(element, basestring):
-                errors[key].append(_('invalid type for repeating text: %r')
-                    % element)
-                continue
-            if isinstance(element, str):
-                try:
-                    element = element.decode('utf-8')
-                except UnicodeDecodeError:
-                    errors[key]. append(_('invalid encoding for "%s" value')
-                        % lang)
-                    continue
-            out.append(element)
+            selected.add(element)
+
+            if element not in static_choice_order:
+                static_choice_order.append(element)
+            continue
 
         if not errors[key]:
-            data[key] = json.dumps(out)
-        return
+            data[key] = json.dumps([v for v in
+                (static_choice_order if static_choice_values else choice_order)
+                if v in selected])
 
-    # 3. separate fields
-    found = {}
-    prefix = key[-1] + '-'
-    extras = data.get(key[:-1] + ('__extras',), {})
+            if field.get('required') and not selected:
+                errors[key].append(_('Select at least one'))
 
-    for name, text in extras.iteritems():
-        if not name.startswith(prefix):
-            continue
-        if not text:
-            continue
-        index = name.rsplit('-', 1)[1]
-        try:
-            index = int(index)
-        except ValueError:
-            continue
-        found[index] = text
-
-    out = [found[i] for i in sorted(found)]
-    data[key] = json.dumps(out)
-
-
-def repeating_links_output(value):
-    """
-    Return stored json representation as a list, if
-    value is already a list just pass it through.
-    """
-    if isinstance(value, list):
-        return value
-    if value is None:
-        return []
-    try:
-        return json.loads(value)
-    except ValueError:
-        return [value]
+    return validator
