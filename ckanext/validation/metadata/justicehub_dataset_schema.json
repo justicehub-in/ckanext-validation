@@ -184,6 +184,7 @@
       "form_placeholder": "e.g. Individual, State",
       "preset": "metadata_autocomplete",
       "form_attrs": {
+          "data-module-tags": true,
           "data-module-source": "/api/3/action/metadata_autocomplete?field=level&incomplete=?"
       },
       "description": "On which level the study was done e.g. Individual, State etc."
