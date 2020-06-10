@@ -76,7 +76,7 @@
     },
     {
       "field_name": "update_frequency",
-      "label": "Update Frequency",
+      "label": "Updated",
       "preset":"select",
       "form_snippet": "radio.html",
       "choices":[
@@ -173,7 +173,7 @@
     },
     {
       "field_name": "collected_month",
-      "label": "Year-Month of Data Collection",
+      "label": "Data Collected",
       "form_placeholder": "e.g. 2020-03",
       "preset": "month",
       "description": "When the data was collected."
@@ -204,7 +204,7 @@
     },
     {
       "field_name": "last_updated",
-      "label": "Last updated on",
+      "label": "Last updated",
       "preset": "date"
     },
     {
