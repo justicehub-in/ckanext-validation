@@ -22,7 +22,8 @@ from ckanext.validation.logic import (resource_validation_delete,
 from ckanext.validation.model import tables_exist
 from ckanext.validation.utils import (get_create_mode_from_config,
                                       get_update_mode_from_config)
-from ckanext.validation.validators import (resource_schema_validator,
+from ckanext.validation.validators import (meta_string_convert,
+                                           resource_schema_validator,
                                            scheming_multiple_choice_with_other,
                                            validation_options_validator)
 
@@ -262,6 +263,7 @@ to create the database tables:
         return {
             'resource_schema_validator': resource_schema_validator,
             'validation_options_validator': validation_options_validator,
+            'meta_string_convert': meta_string_convert,
             'scheming_multiple_choice_with_other': scheming_multiple_choice_with_other
         }
 

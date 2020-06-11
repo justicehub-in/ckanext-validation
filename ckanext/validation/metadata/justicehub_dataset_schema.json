@@ -183,9 +183,10 @@
       "label": "Level of Dataset",
       "form_placeholder": "e.g. Individual, State",
       "preset": "metadata_autocomplete",
+      "validators": "ignore_missing meta_string_convert",
       "form_attrs": {
           "data-module-tags": true,
-          "data-module-source": "/api/3/action/metadata_autocomplete?field=level&incomplete=?"
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=level&islist=True&incomplete=?"
       },
       "description": "On which level the study was done e.g. Individual, State etc."
     },
@@ -220,7 +221,7 @@
       "label": "Data Source",
       "preset":"multiple_checkbox_with_other",
       "form_attrs": {
-          "data-module-source": "/api/3/action/metadata_autocomplete?field=data_source&incomplete=?"
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=data_source&islist=True&incomplete=?"
       },
       "choices": [
 	      {
@@ -263,7 +264,7 @@
       "label": "Method of Collection",
       "preset":"multiple_checkbox_with_other",
       "form_attrs": {
-          "data-module-source": "/api/3/action/metadata_autocomplete?field=method_of_collection&incomplete=?"
+          "data-module-source": "/api/3/action/metadata_autocomplete?field=method_of_collection&islist=True&&incomplete=?"
       },
       "choices": [
 	      {

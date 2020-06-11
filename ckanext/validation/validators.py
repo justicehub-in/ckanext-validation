@@ -14,7 +14,8 @@ from ckan.plugins.toolkit import _, missing
 # Input validators
 
 def resource_schema_validator(value, context):
-
+    '''
+    '''
     if not value:
         return
 
@@ -117,7 +118,7 @@ def scheming_multiple_choice_with_other(field, schema):
         for element in value:
             selected.add(element)
 
-            if element not in static_choice_order:
+            if element and element not in static_choice_order:
                 static_choice_order.append(element)
             continue
 
@@ -130,3 +131,15 @@ def scheming_multiple_choice_with_other(field, schema):
                 errors[key].append(_('Select at least one'))
 
     return validator
+
+def meta_string_convert(key, data, errors, context):
+    '''Takes a list of tags that is a comma-separated string (in data[key])
+    and parses tag names. These are added to the data dict, enumerated. They
+    are also validated.'''
+
+    if isinstance(data[key], six.string_types):
+        items = [item.strip() for item in data[key].split(',') if item.strip()]
+    else:
+        items = [data[key]]
+
+    data[key] = json.dumps(items)

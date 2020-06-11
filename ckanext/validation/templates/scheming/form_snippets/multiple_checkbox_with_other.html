@@ -23,6 +23,9 @@ fieldset.checkboxes label input {
   {%- if field.get('sorted_choices') -%}
     {%- set choices = choices|sort(case_sensitive=false, attribute=1) -%}
   {%- endif -%}
+
+  {% set choice_values = [] %}
+
     <fieldset class="checkboxes">
         {%- for val, label in choices -%}
             <label for="field-{{ field.field_name }}-{{ val }}">
@@ -33,6 +36,21 @@ fieldset.checkboxes label input {
                     {{"checked " if val in data[field.field_name] }} />
                 {{ label }}
             </label>
+
+        {% do choice_values.append(val) %}
+        {%- endfor -%}
+
+        {%- for val in data[field.field_name] -%}
+            {% if val not in choice_values %}
+            <label for="field-{{ field.field_name }}-{{ val }}">
+                <input id="field-{{ field.field_name }}-{{ val }}"
+                    type="checkbox"
+                    name="{{ field.field_name }}"
+                    value="{{ val }}"
+                    {{"checked " if val in data[field.field_name] }} />
+                {{ val }}
+            </label>
+            {% endif %}
         {%- endfor -%}
     </fieldset>
     <label for="field-{{ field.field_name}}-other">
@@ -40,7 +58,7 @@ fieldset.checkboxes label input {
         <input id="field-{{ field.field_name }}-other"
                name="{{ field.field_name }}"
                type="text"
-               data-module="autocomplete"
+               data-module="autocomplete-action-api"
                data-module-source="{{ field.form_attrs['data-module-source'] }}"
                data-module-tags="" class="checkbox-other">
     </label>
