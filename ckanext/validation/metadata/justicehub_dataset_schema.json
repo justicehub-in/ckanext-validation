@@ -183,8 +183,8 @@
       "label": "Level of Dataset",
       "form_placeholder": "e.g. Individual, State",
       "preset": "metadata_autocomplete",
-      "validators": "ignore_missing meta_string_convert",
       "form_attrs": {
+          "data-module": "autocomplete-action-api",
           "data-module-tags": true,
           "data-module-source": "/api/3/action/metadata_autocomplete?field=level&islist=True&incomplete=?"
       },

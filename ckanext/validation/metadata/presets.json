@@ -31,8 +31,7 @@
       "values": {
         "form_snippet": "multiple_checkbox_with_other.html",
         "display_snippet": "multiple_choice_with_other.html",
-        "validators": "scheming_multiple_choice_with_other",
-        "output_validators": "scheming_multiple_choice_output"
+        "validators": "scheming_multiple_choice_with_other"
       }
     }
   ]

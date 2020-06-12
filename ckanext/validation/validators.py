@@ -123,7 +123,7 @@ def scheming_multiple_choice_with_other(field, schema):
             continue
 
         if not errors[key]:
-            data[key] = json.dumps([v for v in
+            data[key] = ','.join([v for v in
                 (static_choice_order if static_choice_values else choice_order)
                 if v in selected])
 
@@ -131,15 +131,3 @@ def scheming_multiple_choice_with_other(field, schema):
                 errors[key].append(_('Select at least one'))
 
     return validator
-
-def meta_string_convert(key, data, errors, context):
-    '''Takes a list of tags that is a comma-separated string (in data[key])
-    and parses tag names. These are added to the data dict, enumerated. They
-    are also validated.'''
-
-    if isinstance(data[key], six.string_types):
-        items = [item.strip() for item in data[key].split(',') if item.strip()]
-    else:
-        items = [data[key]]
-
-    data[key] = json.dumps(items)

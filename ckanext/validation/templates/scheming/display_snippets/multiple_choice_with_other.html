@@ -1,6 +1,12 @@
-{%- set values = data[field.field_name] -%}
+{%- set values = data[field.field_name].split(',') -%}
 {%- set labels = [] -%}
 
+{%- for choice in h.scheming_field_choices(field) -%}
+    {%- if choice.value in values -%}
+      {%- do labels.append(h.scheming_language_text(choice.label)) -%}
+      {%- do values.remove(choice.value) -%}
+    {%- endif -%}
+{%- endfor -%}
 {%- for value in values -%}
   {%- do labels.append(h.scheming_language_text(value)) -%}
 {%- endfor -%}
