@@ -40,8 +40,8 @@ fieldset.checkboxes label input {
         {% do choice_values.append(val) %}
         {%- endfor -%}
 
-        {%- for val in data[field.field_name].split(',') -%}
-            {% if val not in choice_values %}
+        {%- for val in data.get(field.field_name, '').split(',') -%}
+            {% if val and val not in choice_values %}
             <label for="field-{{ field.field_name }}-{{ val }}">
                 <input id="field-{{ field.field_name }}-{{ val }}"
                     type="checkbox"
