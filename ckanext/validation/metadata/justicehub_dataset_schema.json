@@ -9,7 +9,8 @@
       "field_name": "title",
       "label": "Title",
       "preset": "title",
-      "form_placeholder": "eg. A descriptive title"
+      "form_placeholder": "eg. A descriptive title",
+      "description": "Title of the dataset."
     },
     {
       "field_name": "name",
@@ -21,13 +22,15 @@
       "field_name": "notes",
       "label": "Description",
       "form_snippet": "markdown.html",
-      "form_placeholder": "eg. Some useful notes about the data"
+      "form_placeholder": "eg. Some useful notes about the data",
+      "description": "Short | Long description of the dataset."
     },
     {
       "field_name": "tag_string",
       "label": "Tags",
       "preset": "tag_string_autocomplete",
-      "form_placeholder": "eg. economy, mental health, government"
+      "form_placeholder": "eg. economy, mental health, government",
+      "description": "Tags to identify the dataset."
     },
     {
       "field_name": "verified",
@@ -67,7 +70,8 @@
       "field_name": "license_id",
       "label": "License",
       "form_snippet": "license.html",
-      "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
+      "help_text": "License definitions and additional information can be found at http://opendefinition.org/",
+      "description": "What licences will this data adhere to ?"
     },
     {
       "field_name": "owner_org",
@@ -97,7 +101,7 @@
              "label": "Annually"
 	      }
       ],
-      "description": "Indicates if or how frequently the dataset is updated."
+      "description": "How frequent is the dataset updated ?"
     },
     {
       "field_name": "states",
@@ -106,8 +110,7 @@
       "preset": "metadata_autocomplete",
       "form_attrs": {
           "data-module-source": "/api/3/action/metadata_autocomplete?field=states&incomplete=?"
-      },
-      "description": "Which Indian state(s) the dataset has data from."
+      }
     },
     {
       "field_name": "district",
@@ -116,8 +119,7 @@
       "preset": "metadata_autocomplete",
       "form_attrs": {
           "data-module-source": "/api/3/action/metadata_autocomplete?field=district&incomplete=?"
-      },
-      "description": "Which Indian district(s) the dataset has data from."
+      }
     },
     {
       "field_name": "village",
@@ -126,8 +128,7 @@
       "preset": "metadata_autocomplete",
       "form_attrs": {
           "data-module-source": "/api/3/action/metadata_autocomplete?field=village&incomplete=?"
-      },
-      "description": "Which Indian village(s) the dataset has data from."
+      }
     },
     {
       "field_name": "court",
@@ -176,7 +177,7 @@
       "label": "Data Collected",
       "form_placeholder": "e.g. 2020-03",
       "preset": "month",
-      "description": "When the data was collected."
+      "description": "When was the data collected/published ? This helps the user assess the recency of a dataset."
     },
     {
       "field_name": "level",
@@ -188,7 +189,7 @@
           "data-module-tags": true,
           "data-module-source": "/api/3/action/metadata_autocomplete?field=level&islist=True&incomplete=?"
       },
-      "description": "On which level the study was done e.g. Individual, State etc."
+      "description": "Is the dataset available at the level of a court, or case, or individual, or any geographical entity. This helps the user identify what each row in the dataset represents."
     },
     {
       "field_name": "language",
@@ -197,7 +198,8 @@
       "preset": "metadata_autocomplete",
       "form_attrs": {
           "data-module-source": "/api/3/action/metadata_autocomplete?field=language&incomplete=?"
-      }
+      },
+      "description": "Languages, the data is stored/available in ?"
     },
     {
       "field_name":"upload_date",
@@ -257,7 +259,7 @@
               "label": "NCRB"
 	      }
        ],
-      "description": "What is the source of data."
+      "description": "How was the data sourced ?"
     },
     {
       "field_name":"method_of_collection",
@@ -284,7 +286,7 @@
 	          "label": "Sourced from Government Agencies"
 	      }
        ],
-      "description": "How the data was collected."
+      "description": "A note on the data collection exercise. This can also be mentioned as part of the methodology document shared with the dataset( (if any)."
     },
     {
       "field_name": "sensitivity",
@@ -305,7 +307,7 @@
              "label": "Highly sensitive"
 	      }
       ],
-      "description": "Sensitivity of the information that is being presented in the dataset."
+      "description": "Does the dataset have PII’s (Personally Identifiable Information) ?"
     },
     {
       "field_name": "version",
@@ -365,7 +367,7 @@
               "label": "Description"
           }
       ],
-      "description": "Any relevant links e.g. research publication, code etc."
+      "description": "URL. Links to studies/articles/blogs where the dataset was used."
     }
   ],
   "resource_fields": [
