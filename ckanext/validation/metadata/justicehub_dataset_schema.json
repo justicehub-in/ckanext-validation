@@ -195,6 +195,7 @@
       "field_name": "language",
       "label": "Language",
       "form_placeholder": "e.g. en, hi",
+      "display_snippet": "language.html",
       "preset": "metadata_autocomplete",
       "form_attrs": {
           "data-module-source": "/api/3/action/metadata_autocomplete?field=language&incomplete=?"
